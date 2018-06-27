@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+	<title>Github Visualization</title>
+	
+	<!-- Meta -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	
+	<!-- Bootstrap -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<!-- Bootstrap Extended -->
+	<link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet" />
+	<link href="bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" />
+	
+	<!-- JQueryUI v1.9.2 -->
+	<link rel="stylesheet" href="theme/scripts/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css" />
+	
+	<!-- Glyphicons -->
+	<link rel="stylesheet" href="theme/css/glyphicons.css" />
+	
+	<!-- Bootstrap Extended -->
+	<link rel="stylesheet" href="bootstrap/extend/bootstrap-select/bootstrap-select.css" />
+	<link rel="stylesheet" href="bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+	
+	<!-- Uniform -->
+	<link rel="stylesheet" media="screen" href="theme/scripts/pixelmatrix-uniform/css/uniform.default.css" />
+
+	<!-- JQuery v1.8.2 -->
+ 	<script src="theme/scripts/jquery-1.8.2.min.js"></script>  
+	
+	<!-- Modernizr -->
+	<script src="theme/scripts/modernizr.custom.76094.js"></script>
+	
+	<!-- MiniColors -->
+	<link rel="stylesheet" media="screen" href="theme/scripts/jquery-miniColors/jquery.miniColors.css" />
+	
+
+	
+	<!-- Theme -->
+	<link rel="stylesheet" href="theme/css/style.min.css?1361377748" />
+	<!-- Highcharts-->
+
+	<script src="code/highcharts.js"></script>
+		<script src="code/modules/series-label.js"></script>
+<script src="code/modules/exporting.js"></script>
+<script src="code/modules/export-data.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>    
+
+	
+	<script src="js/browser.js"></script>    
+
+	<!-- LESS 2 CSS -->
+	<script src="theme/scripts/less-1.3.3.min.js"></script>
+	<!--
+	<script type="text/javascript" src="particles.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script src="particles.min.js"></script>
+-->
+<style>
+	body{
+			 background-image: url(srcpic/background.jpg);  
+		     background-size:cover;
+			 background-attachment: fixed;
+	}
+	#chartcontent{
+		
+		display:flex;
+		justify-content: center;
+	}
+	#mainchartcon{
+		width: auto;
+		text-align: center;
+		padding-right: 20px;
+	padding-left: 20px;
+	
+ *zoom:1;	
+	}
+	#particles-js
+	{
+	position: absolute;
+    top: 21px;
+    left: 0;
+    z-index: -3;
+    width: 100%;
+    height: 99%;
+	}
+	#chart_simple
+	{
+		margin-left: 50%;
+		transform: translate(-50%,0%);
+		width:900px;
+		height:400px;
+
+	}
+	#comment
+	{
+		align-content: center;
+		text-align: center;
+		color:#ffffff;
+		font-size: 25px;
+	}
+	#decmain
+	{
+		position: absolute;
+		z-index: -1;
+		left: 0px; top: 0px
+		background-image: url(beijing.jpg);
+			 background-size:cover;
+	}
+    .touming
+		{
+			background-color: rgba(255,255,255,0.15);
+		}
+    </style>
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+	
+	
+	<div class="navbar main">
+	
+		<div class="container">
+			<div class="row">
+				<div class="span12 relativeWrap">
+				
+					<button type="button" class="btn btn-navbar visible-phone">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+		
+					<ul id="menu" class="hidden-phone">
+						<li class="active">
+							<a href="index.html" class="menuToggle">菜单</a>
+							<ul class="menu hide">
+								<li class=""><a href="index.html"><span>主页</span></a></li>
+								<li class=""><a href="language.html"><span>语言排行榜</span></a></li>
+								<li class=""><a href="langtrend.html"><span>历年语言趋势</span></a></li>
+								<li class=""><a href="numRepository.html"><span>历年仓库数</span></a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="countryuser.html" class="menuToggle">国家</a>
+							<ul class="menu hide">
+								<li class="active"><a href="countryuser.html"><span>国家用户数</span></a></li>	
+								<li class=""><a href="countryhock.html"><span>国家黑客数</span></a></li>
+							</ul>
+						</li>
+												<li>
+							<a href="help.html" class="menuToggle">关于</a>
+							<ul class="menu hide">
+								<li class=""><a href="help.html"><span>帮助</span></a></li>	
+								<li class=""><a href="techsupport.html"><span>技术支持</span></a></li>
+							</ul>
+						</li>
+					</ul>
+					
+					<span class="profile">
+						<span>
+						<br>
+							<strong>Github Visualization</strong>
+						</span>
+						<a class="img" href="index.html"><img src="srcpic/tubiao.png" alt="Home" /></a>
+					</span>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+<!-- Start Content -->
+					
+<!--<div class="separator"></div>-->
+
+<div id="particles-js"></div>  
+<p id="comment">国家用户数排行</p>
+<div id="chart_simple" >
+	</div>
+	
+			
+	
+	<!--			<br />
+		<a href="documentation.html" title="">Documentation</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+    -->
+
+<!-- JQueryUI v1.9.2 -->
+	<script src="theme/scripts/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+	
+	<!-- JQueryUI Touch Punch -->
+	<!-- small hack that enables the use of touch events on sites using the jQuery UI user interface library -->
+	<script src="theme/scripts/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+	<!-- MiniColors -->
+	<script src="theme/scripts/jquery-miniColors/jquery.miniColors.js"></script>
+	
+	<!-- Themer -->
+	<script>
+	var themerPrimaryColor = '#71c39a';
+	</script>
+	<script src="theme/scripts/jquery.cookie.js"></script>
+	<script src="theme/scripts/themer.js"></script>
+	
+	
+	
+
+		
+	<!--  Flot (Charts) JS -->
+	<script src="theme/scripts/flot/jquery.flot.js" type="text/javascript"></script>
+	<script src="theme/scripts/flot/jquery.flot.pie.js" type="text/javascript"></script>
+	<script src="theme/scripts/flot/jquery.flot.tooltip.js" type="text/javascript"></script>
+	<script src="theme/scripts/flot/jquery.flot.selection.js"></script>
+	<script src="theme/scripts/flot/jquery.flot.resize.js" type="text/javascript"></script> 
+	<script src="theme/scripts/flot/jquery.flot.orderBars.js" type="text/javascript"></script>
+	
+		
+ 
+	<script>
+		
+	
+	var num=new Array();
+    var i = 0;
+	var language = []		
+			    $(function(){
+       /*$("#btn").click(function(){   */
+             
+           var fina1=$.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3ACHINA&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+              //  jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+               // jsonpCallback: 'handleResponse1', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[0]=response.total_count;
+					console.log('数量:'+num[0]);
+					
+					
+                }
+				
+            });
+					
+			 var fina2= $.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3AUSA&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+              //  jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+              //  jsonpCallback: 'handleResponse2', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[1]=response.total_count;
+					console.log('数量:'+num[1]);
+					
+					
+                }
+				
+            });
+					
+					
+			var fina3=$.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3Arussia&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+              //  jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+              //  jsonpCallback: 'handleResponse3', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[2]=response.total_count;
+					console.log('数量:'+num[2]);
+					
+					
+                }
+				
+            });
+					
+			var fina4=$.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3AAustralia&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+              //  jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+               // jsonpCallback: 'handleResponse4', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[3]=response.total_count;
+					console.log('数量:'+num[3]);
+					
+					
+                }
+				
+            });
+					
+					
+			var fina5=$.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3AEngland+location%3Abritain&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+              //  jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+              //  jsonpCallback: 'handleResponse5', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[4]=response.total_count;
+					console.log('数量:'+num[4]);
+					
+					
+                }
+				
+            });
+					
+				var fina6=	$.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3AFrance&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+              //  jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+             //   jsonpCallback: 'handleResponse6', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[5]=response.total_count;
+					console.log('数量:'+num[5]);
+					
+					
+                }
+				
+            });
+					
+				var fina7=$.ajax({
+				
+                async : true,
+                url : '/search/users?q=location%3AGermany&type=Users&ref=advsearch&l=&l=',
+                type : "GET",
+                dataType : "json", // 返回的数据类型，设置为JSONP方式
+             //   jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
+              //  jsonpCallback: 'handleResponse7', //设置回调函数名
+                data : {
+                 //   q : "javascript", 
+                  //  count : 1
+                }, 
+                success: function(response, status, xhr){
+                    console.log('状态为：' + status + ',状态是：' + xhr.statusText );
+                    console.log(response);
+					//num[i]=response.data.rate.limit;
+					num[6]=response.total_count;
+					console.log('数量:'+num[6]);
+					
+					
+                }
+				
+            });
+					$.when(fina1,fina2,fina3,fina4,fina5,fina6,fina7).done(chartinit);
+		//setTimeout("chartinit();",5000);
+		      
+				
+        });
+		
+	function chartinit()
+	{  
+		Highcharts.chart('chart_simple', {
+ chart: {
+		backgroundColor: 'rgba(0,0,0,0.5)',
+        type: 'column'
+		
+    },
+    title: {
+		style:{color:'#ffffff'},
+        text: '各国家用户情况'
+    },
+    subtitle: {
+        text: ' '
+    },
+    xAxis: {
+	
+        categories:[
+			'各国家'
+			
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+			style:{color:'#ffffff'},
+            text: '各国家用户数目'
+        }
+    },
+    tooltip: {
+		
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} number </b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: '中国',
+        data: [num[0]]
+
+    }, {
+        name: '美国',
+        data: [num[1]]
+
+    }, {
+        name: '俄罗斯',
+        data: [num[2]]
+
+    }, {
+        name: '澳大利亚',
+        data: [num[3]]
+
+    },
+			{
+        name: '英国',
+        data: [num[4]]
+
+    },
+			{
+        name: '法国',
+        data: [num[5]]
+
+    },
+			{
+        name: '德国',
+        data: [num[6]]
+
+    }]
+	
+});
+	}
+	
+	</script>
+	
+	
+	<!-- Resize Script -->
+	<script src="theme/scripts/jquery.ba-resize.js"></script> 
+	
+	<!-- Uniform -->
+	<script src="theme/scripts/pixelmatrix-uniform/jquery.uniform.min.js"></script>
+	
+	<!-- Bootstrap Script -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap Extended -->
+	<script src="bootstrap/extend/bootstrap-select/bootstrap-select.js"></script>
+	<script src="bootstrap/extend/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+	<script src="bootstrap/extend/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
+	<script src="bootstrap/extend/jasny-bootstrap/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+	<script src="bootstrap/extend/jasny-bootstrap/js/bootstrap-fileupload.js" type="text/javascript"></script>
+	<script src="bootstrap/extend/bootbox.js" type="text/javascript"></script>
+	<script src="bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js" type="text/javascript"></script>
+	<script src="bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js" type="text/javascript"></script>
+	
+	<!-- Custom Onload Script -->
+		<script src="theme/scripts/load.js"></script>
+		<script type="text/javascript" src="js/particles.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script src="js/particles.min.js"></script>  
+	
+</body>
+</html>
